@@ -1,0 +1,76 @@
+{
+  "name": "cordova-mobile-app-skeleton",
+  "displayName": "Cordova umi skeleton",
+  "version": "1.0.0",
+  "description": "A scaffold of cordova-umi app",
+  "scripts": {
+    "start": "node ./build/browserDev",
+    "postinstall": "node ./build/prepare.js",
+    "mock:android": "umi build && cordova emulate android",
+    "mock:ios": "umi build && cordova build ios && open -a Xcode ./platforms/ios/cordova-mobile-app-skeleton.xcworkspace",
+    "real:android": "umi build && cordova run android",
+    "release:android": "umi build && cordova build android --release -- --keystore=./build/upload-keystore.jks --storePassword=123qwe --alias=upload --password=123qwe"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --max-warnings=0 --ignore-pattern !.umirc*.ts"
+  },
+  "author": "Howard.Zuo<howardzuo@dfocuspace.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@ant-design/icons": "^2.1.1",
+    "axios": "^0.19.0",
+    "classnames": "^2.2.6",
+    "dva": "^2.4.1",
+    "dva-core": "^2.0.0",
+    "js-cookie": "^2.2.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "path-to-regexp": "^3.1.0",
+    "qs": "^6.9.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-import": "^1.12.2",
+    "cordova": "^9.0.0",
+    "cordova-android": "^8.1.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-ios": "^5.0.1",
+    "cordova-plugin-ionic-webview": "^4.1.2",
+    "cordova-plugin-whitelist": "^1.3.4",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-config-umi": "^1.5.0",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "express": "^4.17.1",
+    "husky": "^3.0.9",
+    "less-vars-to-js": "^1.3.0",
+    "lint-staged": "^9.4.2",
+    "redbox-react": "^1.6.0",
+    "umi": "^2.10.4",
+    "umi-plugin-react": "^1.12.5",
+    "umi-types": "^0.5.3"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      }
+    },
+    "platforms": [
+      "android",
+      "ios",
+      "browser"
+    ]
+  }
+}

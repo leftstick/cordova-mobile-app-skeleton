@@ -1,0 +1,16 @@
+# npm
+node_modules
+package-lock.json
+
+# cordova
+platforms
+plugins
+www/
+
+
+#umi
+.umi
+.umi-production
+
+#misc
+.DS_Store
